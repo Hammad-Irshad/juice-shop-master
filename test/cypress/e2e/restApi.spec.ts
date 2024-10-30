@@ -126,7 +126,7 @@ describe('/api', () => {
 
     // Cypress alert bug
     xit('should be possible to create a new product when logged in', () => {
-      cy.task('isDocker').then((isDocker: boolean) => {
+      cy.task('isDocker').then((isDocker: unknown) => { // Change boolean to unknown
         if (!isDocker) {
           cy.window().then(async () => {
             const response = await fetch(
@@ -166,8 +166,8 @@ describe('/api', () => {
 
   describe('challenge "changeProduct"', () => {
     it('should be possible to change product via PUT request without being logged in', () => {
-      cy.task('GetTamperingProductId').then((tamperingProductId: number) => {
-        cy.task('GetOverwriteUrl').then((overwriteUrl: string) => {
+      cy.task('GetTamperingProductId').then((tamperingProductId: unknown) => { // Change number to unknown
+        cy.task('GetOverwriteUrl').then((overwriteUrl: unknown) => { // Change string to unknown
           cy.window().then(async () => {
             const response = await fetch(
               `${Cypress.config('baseUrl')}/api/Products/${tamperingProductId}`,
@@ -203,7 +203,7 @@ describe('/rest/saveLoginIp', () => {
     });
 
     it('should be possible to save log-in IP when logged in', () => {
-      cy.task('isDocker').then((isDocker: boolean) => {
+      cy.task('isDocker').then((isDocker: unknown) => { // Change boolean to unknown
         if (!isDocker) {
           cy.window().then(async () => {
             const response = await fetch(
