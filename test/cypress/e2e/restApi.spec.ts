@@ -118,7 +118,6 @@
 //   })
 // })
 
-
 describe('/api', () => {
   describe('challenge "restfulXss"', () => {
     beforeEach(() => {
@@ -127,7 +126,7 @@ describe('/api', () => {
 
     // Cypress alert bug
     xit('should be possible to create a new product when logged in', () => {
-      cy.task('isDocker').then((isDocker) => {
+      cy.task('isDocker').then((isDocker: boolean) => {
         if (!isDocker) {
           cy.window().then(async () => {
             const response = await fetch(
@@ -204,7 +203,7 @@ describe('/rest/saveLoginIp', () => {
     });
 
     it('should be possible to save log-in IP when logged in', () => {
-      cy.task('isDocker').then((isDocker) => {
+      cy.task('isDocker').then((isDocker: boolean) => {
         if (!isDocker) {
           cy.window().then(async () => {
             const response = await fetch(
